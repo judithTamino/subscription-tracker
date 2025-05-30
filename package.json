@@ -1,0 +1,31 @@
+{
+  "name": "subdub",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judithTamino/subscription-tracker.git"
+  },
+  "author": "Judith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/judithTamino/subscription-tracker/issues"
+  },
+  "homepage": "https://github.com/judithTamino/subscription-tracker#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.2.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  }
+}
