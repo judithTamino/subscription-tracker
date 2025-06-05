@@ -24,13 +24,17 @@ const subscriptionSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["news", "sports", "entertainments", "lifestyle", "tech", "finance", "politics", "other"],
+    enum: ["news", "sports", "entertainment", "lifestyle", "tech", "finance", "politics", "other"],
+    required: true,
+  },
+  paymentMethod: {
+    type: String,
     required: true,
     trim: true,
   },
   status: {
     type: String,
-    enum: ["active", "canelled", "expired"],
+    enum: ["active", "cancelled", "expired"],
     default: "active",
   },
   startDate: {
@@ -43,7 +47,6 @@ const subscriptionSchema = new mongoose.Schema({
   },
   renwalDate: {
     type: Date,
-    required: true,
     validate: {
       validator: function (value) { value > this.startDate },
       message: "Start date must be in the past",
@@ -72,9 +75,9 @@ subscriptionSchema.pre("save", function (next) {
   }
 
   // Auto-update the status if renewal date has passed
-  if(this.renwalDate < new Date())
+  if (this.renwalDate < new Date())
     this.status = "expired";
-  
+
   next();
 });
 
